@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nossas lojas</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./estilo.css">
 </head>
 <body>
    <!-- Menu-->
@@ -41,10 +41,8 @@
     </div>
 
   
-    <footer id="rodapé">
-        <p id="formas-pagamento">Formas de pagamento</p>
-        <img src="./imagens/formas-pagamento.png" alt="Formas de pagamento">
-        <p>&copy;Recode Pro</p>
-    </footer>
+    <?php
+        include('rodape.html')
+    ?>
 </body>
 </html>

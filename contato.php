@@ -12,7 +12,7 @@ if (!$conn){
 };
 
 if(isset($_POST['nome']) && isset($_POST['msg'])){
-    $nome = $_POST['<nom></nom>e'];
+    $nome = $_POST['nome'];
     $msg = $_POST['msg'];
     
     $sql = "insert into comentarios (nome, msg) values ('$nome' , '$msg')";
@@ -28,7 +28,8 @@ if(isset($_POST['nome']) && isset($_POST['msg'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./estilo.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
     <!-- Menu-->
@@ -37,19 +38,28 @@ if(isset($_POST['nome']) && isset($_POST['msg'])){
     ?>    
 
     <!-- Fim do Menu-->
-    <header><h2>Contato</h2></header>
-    <hr>
 
-    <div class="formas-contatos">
+    
+    <div class="container">
+    <h2>Contato</h2>
+    <hr>
+    <div class="formas-contatos-box">
+    <div class="contato">
         <img src="./imagens/email.png" width="40px">
                 contato@fullstackeletro.com
     </div>
-    <div class="formas-contatos">
+
+    <div class="contato">
         <img src="./imagens/whatsapp.png" width="40px">
                 (11)99999-9999
     </div>
-   
+    </div>
 
+
+
+    </div>
+
+    <!-- 
     <form action="" method="post">
         Nome: <br>
         <input type="text" name="nome" style="width:500px"><br>
@@ -59,6 +69,28 @@ if(isset($_POST['nome']) && isset($_POST['msg'])){
 
     </form>
 
+    -->
+
+    <div class=container>
+    <form method="post">
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <input name="nome" type="text" class="form-control" placeholder="Digite seu Nome">
+  </div>
+
+  <div class="form-group">
+    <label for="msg">Mensagem</label>
+    <textarea class="form-control" name="msg" rows="4"></textarea>
+    <small class="form-text text-muted">Escreva um elogio, faça uma elogio ou peça uma informação</small>
+  </div>
+
+  <button type="submit" name="submit" class="btn btn-primary">Enviar</button>
+</form>
+</div>
+
+
+
+    <div class="container resposta_msg">
     <?php
             $sql = "select * from comentarios";
             $result = $conn->query($sql);
@@ -75,15 +107,13 @@ if(isset($_POST['nome']) && isset($_POST['msg'])){
             }
     
     ?>
-
-        
+    
+    </div>
     
 
-    <footer id="rodapé">
-        <p id="formas-pagamento">Formas de pagamento</p>
-        <img src="./imagens/formas-pagamento.png" alt="Formas de pagamento">
-        <p>&copy;Recode Pro</p>
-    </footer>
+<?php
+        include('rodape.html')
+    ?>
     
 </body>
 </html>

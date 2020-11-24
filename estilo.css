@@ -3,7 +3,7 @@ body {
 }
 
 .menu{
-    background-color: red;
+    background-color:#2733A0 ;
 }
 
 #formas-pagamento {
@@ -24,10 +24,12 @@ top:-15px;
 #apresentação {
     position: relative;
     bottom: 70px;
+    margin-top: 50px;
 }
 
 #rodapé {
     text-align: center;
+    margin-top: 175px;
 }
 
 .preço {
@@ -50,12 +52,14 @@ top:-15px;
     top: -60px;
 }
 
-.formas-contatos {
-    font-size: 18px;
-    display: inline-block;
+.contato {
+    font-size: 18px;    
     padding:50px;
-    position: relative;
-    
+}
+
+.formas-contatos-box{
+    display: flex;
+    justify-content: space-around;
 }
 
 #logo {
@@ -89,4 +93,8 @@ width: 20%;
 
 .imagem_produtos{
     cursor: zoom-in ;
+}
+
+.resposta_msg{
+    margin-top: 100px;
 }

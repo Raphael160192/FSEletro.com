@@ -22,8 +22,10 @@ if (!$conn){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos - Full Stack Eletro</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./estilo.css">
     <script src="./js/funcoes.js "></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
 </head>
 <body>
     <!-- Menu-->
@@ -66,6 +68,7 @@ if (!$conn){
 
     ?>
 
+
 <div class="box-produtos" id="<?php echo $rows["categoria"] ?>" style="display: inline-block">
         <img class="imagem_produtos"  src="<?php echo $rows["imagem"] ?>" width="120px" onclick="destaque(this)">
         <br>
@@ -89,12 +92,9 @@ if (!$conn){
 </div>
    
 
-    <br><br><br><br><br>
-    
-    <footer id="rodapé">
-        <p id="formas-pagamento">Formas de pagamento</p>
-        <img src="./imagens/formas-pagamento.png" alt="Formas de pagamento">
-        <p>&copy;Recode Pro</p>
-    </footer>
+<?php
+        include('rodape.html')
+    ?> 
+   
 </body>
 </html>
