@@ -1,21 +1,3 @@
-<?php 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "full_stack_eletron";
-
-
-$conn = mysqli_connect($servername , $username , $password , $database);
-
-if (!$conn){
-    die("A conexão Falhou".mysqli_connect_error());
-};
-
-
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -59,30 +41,28 @@ if (!$conn){
 
     <?php
 
-    $sql = "select * from tb_produtos";
-    $result = $conn->query($sql);
+   $dados_json = file_get_contents("http://localhost/fseletro.com/getContent.php?table=tb_produtos");
 
-    if($result->num_rows > 0){
+   $dados = json_decode($dados_json, true);
+  
 
-    while($rows = $result->fetch_assoc()){
+   foreach($dados as $key => $row){
+       //print_r($row);
+  
 
     ?>
 
 
-<div class="box-produtos" id="<?php echo $rows["categoria"] ?>" style="display: inline-block">
-        <img class="imagem_produtos"  src="<?php echo $rows["imagem"] ?>" width="120px" onclick="destaque(this)">
+<div class="box-produtos" id="<?php echo $row["categoria"] ?>" style="display: inline-block">
+        <img class="imagem_produtos"  src="<?php echo $row["imagem"] ?>" width="120px" onclick="destaque(this)">
         <br>
-        <p class="descrição"><?php echo $rows["descricao"] ?></p>
+        <p class="descrição"><?php echo $row["descricao"] ?></p>
         <hr>
-        <p class="descrição"><strike>R$<?php echo $rows["preco"] ?></strike></p>
-        <p class="preço">R$<?php echo $rows["precofinal"] ?></p>
+        <p class="descrição"><strike>R$<?php echo $row["preco"] ?></strike></p>
+        <p class="preço">R$<?php echo $row["precofinal"] ?></p>
         </div>
 
 <?php
-    }
-
-    }else{
-    echo "Nenhum produto cadastrado";
     }
 
     ?>
